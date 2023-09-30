@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/regScreen.dart';
 
 class loginScreen extends StatelessWidget {
   const loginScreen({Key? key}) : super(key: key);
@@ -6,6 +7,7 @@ class loginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -112,11 +114,9 @@ class loginScreen extends StatelessWidget {
                     const SizedBox(
                       height: 150,
                     ),
-                    const Align(
+                    Align(
                       alignment: Alignment.bottomRight,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
                             "Don't have account?",
@@ -124,12 +124,22 @@ class loginScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
                           ),
-                          Text(
-                            "Sign up",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                color: Colors.black),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const RegScreen()));
+                            },
+                            child: Container(
+                              child: Text(
+                                "Sign up",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    color: Colors.black),
+                              ),
+                            ),
                           ),
                         ],
                       ),

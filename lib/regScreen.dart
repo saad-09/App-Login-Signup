@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled3/loginScreen.dart';
 
 class RegScreen extends StatelessWidget {
   const RegScreen({Key? key}) : super(key: key);
@@ -6,6 +7,7 @@ class RegScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Container(
@@ -129,24 +131,35 @@ class RegScreen extends StatelessWidget {
                     const SizedBox(
                       height: 80,
                     ),
-                    const Align(
+                    Align(
                       alignment: Alignment.bottomRight,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            "Don't have account?",
+                            "Already have an account?",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey),
                           ),
-                          Text(
-                            "Sign up",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 17,
-                                color: Colors.black),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const loginScreen()));
+                            },
+                            child: Container(
+                              child: Text(
+                                "Sign in",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 17,
+                                    color: Colors.black),
+                              ),
+                            ),
                           ),
                         ],
                       ),

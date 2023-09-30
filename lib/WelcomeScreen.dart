@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 import 'package:untitled3/regScreen.dart';
 
 import 'loginScreen.dart';
@@ -95,22 +95,37 @@ class WelcomeScreen extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  FontAwesomeIcons.instagram,
-                  size: 30,
+                GestureDetector(
+                  onTap: () {
+                    launch('https://www.instagram.com/');
+                  },
+                  child: Icon(
+                    FontAwesomeIcons.instagram,
+                    size: 30,
+                  ),
                 ),
                 Padding(padding: EdgeInsets.all(10)),
-                Icon(
-                  FontAwesomeIcons.twitter,
-                  size: 30,
+                GestureDetector(
+                  onTap: () {
+                    launch('https://twitter.com/');
+                  },
+                  child: Icon(
+                    FontAwesomeIcons.twitter,
+                    size: 30,
+                  ),
                 ),
                 Padding(padding: EdgeInsets.all(10)),
-                Icon(
-                  FontAwesomeIcons.facebook,
-                  size: 30,
+                GestureDetector(
+                  onTap: () {
+                    launch('https://www.facebook.com/');
+                  },
+                  child: Icon(
+                    FontAwesomeIcons.facebook,
+                    size: 30,
+                  ),
                 ),
               ],
             ),
